@@ -1,0 +1,64 @@
+{
+  "name": "shumway",
+  "version": "0.0.1-alpha",
+  "description": "Reduce boilerplate code when handling exceptions.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc --project tsconfig.build.json",
+    "setup": "npm ci && rm -rf coverage dist",
+    "test": "npm run lint && npm run jest && npm audit",
+    "format": "npm run format:prettier && npm run format:eslint",
+    "format:eslint": "eslint --ext=ts --fix .",
+    "format:prettier": "prettier --write .",
+    "lint": "npm run lint:tsc && npm run lint:prettier && npm run lint:eslint",
+    "lint:eslint": "eslint --max-warnings=0 --ext=ts .",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc --noEmit",
+    "jest": "rimraf coverage && jest --coverage",
+    "prepublishOnly": "npm run setup && npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pigulla/shumway.git"
+  },
+  "keywords": [
+    "errors",
+    "decorator",
+    "typescript"
+  ],
+  "author": {
+    "name": "Raphael Pigulla",
+    "email": "pigulla@four66.com"
+  },
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "!dist/*.tsbuildinfo",
+    "CHANGELOG.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/pigulla/shumway/issues"
+  },
+  "homepage": "https://github.com/pigulla/shumway",
+  "devDependencies": {
+    "@types/debug": "^4.1.7",
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "jest": "^27.5.1",
+    "jest-extended": "^2.0.0",
+    "prettier": "^2.6.2",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "type-fest": "^2.12.2",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}

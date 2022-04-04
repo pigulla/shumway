@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "exclude": ["./src/**/*.spec.ts", "./src/mock.ts", "./src/**/*.mock.ts"],
+    "compilerOptions": {
+        "types": ["node"],
+
+        "sourceMap": false,
+        "removeComments": true
+    }
+}
