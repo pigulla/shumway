@@ -1,0 +1,38 @@
+{
+    "collectCoverage": false,
+    "coverageProvider": "v8",
+    "coverageReporters": ["html", "lcov", "text"],
+    "collectCoverageFrom": [
+        "src/**/*.ts",
+        "!src/logger.ts",
+        "!src/**/index.ts",
+        "!src/**/mock.ts",
+        "!src/**/*.d.ts",
+        "!src/**/*.enum.ts",
+        "!src/**/*.error.ts",
+        "!src/**/*.options.ts",
+        "!src/**/*.mock.ts",
+        "test/**/*.use-case.ts"
+    ],
+    "coverageThreshold": {
+        "global": {
+            "branches": 100,
+            "functions": 100,
+            "lines": 100,
+            "statements": 100
+        }
+    },
+    "globals": {
+        "ts-jest": {
+            "tsconfig": "<rootDir>/tsconfig.json"
+        }
+    },
+    "moduleFileExtensions": ["js", "ts"],
+    "resetMocks": true,
+    "setupFilesAfterEnv": ["jest-extended/all"],
+    "testEnvironment": "node",
+    "testRegex": ["/src/.*\\.spec\\.ts$", "/test/.*\\.spec\\.ts"],
+    "transform": {
+        "^.+\\.ts$": "ts-jest"
+    }
+}

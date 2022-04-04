@@ -1,0 +1,28 @@
+{
+    "include": ["./src/**/*.ts"],
+    "compilerOptions": {
+        "types": ["node", "jest"],
+
+        "baseUrl": "./",
+        "outDir": "./dist",
+
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "emitDecoratorMetadata": false,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": true,
+        "module": "commonjs",
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "removeComments": false,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es2017"
+    }
+}
