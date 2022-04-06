@@ -7,4 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   Configure [dependabot](https://docs.github.com/en/code-security/dependabot) for automated dependency updates
+
+## [0.0.1-alpha] - 2022-04-04
+
 -   Initial [release on npm](https://www.npmjs.com/package/shumway).
