@@ -28,9 +28,7 @@ export function handleCallbackError<
 ): { iteration: Iteration.THROW | Iteration.BREAK | Iteration.CONTINUE; error: Error } {
     debug('%s handler threw an error: %s', handler.action, callbackError.message)
     const callbackErrorAction =
-        'callbackErrorAction' in handler
-            ? handler.callbackErrorAction
-            : CallbackErrorAction.THROW_WRAPPED
+        'onCallbackError' in handler ? handler.onCallbackError : CallbackErrorAction.THROW_WRAPPED
 
     switch (callbackErrorAction) {
         case CallbackErrorAction.THROW_WRAPPED: {

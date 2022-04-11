@@ -19,7 +19,7 @@ export interface MapOptions<
 > extends BaseOptions<Arguments, Self, Trigger> {
     action: HandlerAction.MAP
     callback: MapCallback<Arguments, Self, Trigger, Mapped>
-    callbackErrorAction?: CallbackErrorAction
-    continue?: boolean
+    onCallbackError?: CallbackErrorAction
     continueOnCallbackError?: boolean
+    continue?: boolean
 }

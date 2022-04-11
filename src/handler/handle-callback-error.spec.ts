@@ -53,7 +53,7 @@ describe('handleCallbackError', () => {
     })
 
     it('should throw a wrapped error', () => {
-        handler.callbackErrorAction = CallbackErrorAction.THROW_WRAPPED
+        handler.onCallbackError = CallbackErrorAction.THROW_WRAPPED
 
         expect(
             handleCallbackError(
@@ -76,7 +76,7 @@ describe('handleCallbackError', () => {
     })
 
     it('should throw the callback error', () => {
-        handler.callbackErrorAction = CallbackErrorAction.THROW
+        handler.onCallbackError = CallbackErrorAction.THROW
 
         expect(
             handleCallbackError(
@@ -95,7 +95,7 @@ describe('handleCallbackError', () => {
     })
 
     it('should throw the trigger error', () => {
-        handler.callbackErrorAction = CallbackErrorAction.THROW_TRIGGER
+        handler.onCallbackError = CallbackErrorAction.THROW_TRIGGER
 
         expect(
             handleCallbackError(
@@ -114,7 +114,7 @@ describe('handleCallbackError', () => {
     })
 
     it('should throw for unexpected error actions', () => {
-        handler.callbackErrorAction = 'whatevs' as CallbackErrorAction
+        handler.onCallbackError = 'whatevs' as CallbackErrorAction
 
         expect(() =>
             handleCallbackError(

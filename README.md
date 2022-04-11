@@ -1,9 +1,9 @@
 [![npm](https://img.shields.io/npm/v/shumway?style=flat-square&cacheSeconds=3600)](https://www.npmjs.com/package/shumway)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pigulla/shumway/Node.js%20CI?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/actions?query=branch%3Amain)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/issues)
-[![requires.io](https://img.shields.io/requires/github/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://requires.io/github/pigulla/shumway/requirements/?branch=main)
+[![libraries.io](https://img.shields.io/librariesio/release/npm/shumway?style=flat-square&cacheSeconds=3600)](https://requires.io/github/pigulla/shumway/requirements/?branch=main)
 [![Codecov](https://img.shields.io/codecov/c/github/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://app.codecov.io/gh/pigulla/shumway)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/shumway?style=flat-square&cacheSeconds=3600)](https://bundlephobia.com/package/shumway)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/shumway/0.0.1-alpha?style=flat-square&cacheSeconds=3600)](https://bundlephobia.com/package/shumway)
 [![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/shumway?style=flat-square&cacheSeconds=3600)](https://snyk.io/advisor/npm-package/shumway)
 
 # shumway
@@ -127,7 +127,7 @@ It accepts the following additional options:
 
 -   `callback: (error, ...parameters) => Error | Promise<Error>` _(mandatory)_  
      The error thrown by the function will be replaced by the error returned by the callback. Note that the callback must `return` the new error, not `throw` it. The callback is invoked with the same context as the wrapped function (unless you use an arrow function).
--   `callbackErrorAction: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
+-   `onCallbackError: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
      This option controls how errors thrown by the callback are handled.
     -   `THROW_WRAPPED`: The error is wrapped in an `MapError`. This is the default.
     -   `THROW`: The error is thrown as-is.
@@ -151,7 +151,7 @@ It accepts the following additional options:
 
 -   `callback: (error, ...parameters) => T | Promise<T>` _(mandatory)_  
     The callback must return a value (or Promise) compatible with the return value of the wrapped function. The callback is invoked with the same context as the wrapped function (unless you use an arrow function).
--   `callbackErrorAction: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
+-   `onCallbackError: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
     This option controls how errors thrown by the callback are handled.
     -   `THROW_WRAPPED`: The error is wrapped in an `RecoverError`. This is the default.
     -   `THROW`: The error is thrown as-is.
@@ -167,7 +167,7 @@ It accepts the following additional options:
 
 -   `callback: (error, ...parameters) => Error | Promise<Error>` _(mandatory)_  
     The callback is invoked with the same context as the wrapped function (unless you use an arrow function).
--   `callbackErrorAction: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
+-   `onCallbackError: CallbackErrorAction` _(optional, defaults to `THROW_WRAPPED`)_  
     This option controls how errors thrown by the callback are handled.
     -   `THROW_WRAPPED`: The error is wrapped in an `RecoverError`. This is the default.
     -   `THROW`: The error is thrown as-is.
@@ -190,7 +190,7 @@ It accepts the following additional options:
 
 ## Errors thrown in callbacks
 
-If a callback throws, the `callbackErrorAction` options configures, how the error handling will proceed.
+If a callback throws, the `onCallbackError` options configures, how the error handling will proceed.
 
 ### THROW
 
