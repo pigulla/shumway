@@ -1,7 +1,7 @@
 import type { IDebugger } from 'debug'
 
 import type { Handler } from './handler'
-import { handleCallbackError, PredicateError } from './handler'
+import { PredicateError } from './handler'
 import { HandlerAction } from './handler-action.enum'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
@@ -49,15 +49,10 @@ export async function executeHandler<
             return { iteration: Iteration.CONTINUE, error: nextError }
         }
     } catch (error) {
-        return handleCallbackError(
-            {
-                trigger: context.error,
-                handler,
-                WrapperClass: PredicateError,
-                callbackError: error as Error,
-            },
-            debug,
-        )
+        return {
+            iteration: Iteration.THROW,
+            error: new PredicateError({ trigger: context.error, cause: error as Error, handler }),
+        }
     }
 
     switch (handler.action) {
