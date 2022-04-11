@@ -7,6 +7,7 @@
         "!src/logger.ts",
         "!src/**/index.ts",
         "!src/**/mock.ts",
+        "!src/handler/handler.ts",
         "!src/**/*.d.ts",
         "!src/**/*.enum.ts",
         "!src/**/*.error.ts",
