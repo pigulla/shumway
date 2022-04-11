@@ -1,4 +1,3 @@
-jest.mock('./handler/handle-callback-error')
 jest.mock('./handler/recover/recover.handler')
 jest.mock('./handler/pass-through/pass-through.handler')
 jest.mock('./handler/side-effect/side-effect.handler')
@@ -8,7 +7,7 @@ jest.mock('./handler/map/map.handler')
 
 import type { ExecutionResult } from './execute-handler'
 import { executeHandler, Iteration } from './execute-handler'
-import { handleCallbackError, PredicateError } from './handler'
+import { PredicateError } from './handler'
 import { HandlerAction } from './handler-action.enum'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
@@ -24,7 +23,6 @@ import type {
     RecoverMock,
     SideEffectMock,
     TapMock,
-    HandleCallbackErrorMock,
 } from './mock'
 
 const tapMock: TapMock = tapHandler as TapMock
@@ -32,7 +30,6 @@ const mapMock: MapMock = mapHandler as MapMock
 const passThroughMock: PassThroughMock = passThroughHandler as PassThroughMock
 const sideEffectMock: SideEffectMock = sideEffectHandler as SideEffectMock
 const recoverMock: RecoverMock = recoverHandler as RecoverMock
-const handleCallbackErrorMock = handleCallbackError as unknown as HandleCallbackErrorMock
 
 describe('executeHandler', () => {
     type Arguments = [string, number]
@@ -112,24 +109,18 @@ describe('executeHandler', () => {
             )
         })
 
-        it('should return the result of handleCallbackError', async () => {
+        it('should throw if the predicate callback throws', async () => {
             const predicateError = new Error('Boom!')
             handlerMock.predicate = jest.fn().mockRejectedValue(predicateError)
-            handleCallbackErrorMock.mockReturnValue({ iteration: Iteration.THROW, error })
 
             await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual({
                 iteration: Iteration.THROW,
-                error,
-            })
-            expect(handleCallbackErrorMock).toHaveBeenCalledWith(
-                {
-                    trigger: error,
+                error: new PredicateError({
+                    trigger: context.error,
                     handler: handlerMock,
-                    WrapperClass: PredicateError,
-                    callbackError: predicateError,
-                },
-                loggerMock,
-            )
+                    cause: predicateError,
+                }),
+            })
         })
     })
 
