@@ -19,6 +19,6 @@ export interface RecoverOptions<
 > extends BaseOptions<Arguments, Self, Trigger> {
     action: HandlerAction.RECOVER
     callback: RecoverCallback<Arguments, Self, Trigger, ReturnValue>
-    callbackErrorAction?: CallbackErrorAction
+    onCallbackError?: CallbackErrorAction
     continueOnCallbackError?: boolean
 }
