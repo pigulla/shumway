@@ -1,6 +1,6 @@
 {
   "name": "shumway",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2",
   "description": "Reduce boilerplate code when handling exceptions.",
   "main": "dist/index.js",
   "scripts": {
