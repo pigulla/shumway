@@ -20,5 +20,4 @@ export interface RecoverOptions<
     action: HandlerAction.RECOVER
     callback: RecoverCallback<Arguments, Self, Trigger, ReturnValue>
     onCallbackError?: CallbackErrorAction
-    continueOnCallbackError?: boolean
 }
