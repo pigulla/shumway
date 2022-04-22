@@ -15,5 +15,4 @@ export interface SideEffectOptions<Arguments extends unknown[], Self, Trigger ex
     action: HandlerAction.SIDE_EFFECT
     callback: SideEffectCallback<Arguments, Self, Trigger>
     onCallbackError?: CallbackErrorAction
-    continueOnCallbackError?: boolean
 }

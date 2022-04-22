@@ -20,6 +20,5 @@ export interface MapOptions<
     action: HandlerAction.MAP
     callback: MapCallback<Arguments, Self, Trigger, Mapped>
     onCallbackError?: CallbackErrorAction
-    continueOnCallbackError?: boolean
     continue?: boolean
 }
