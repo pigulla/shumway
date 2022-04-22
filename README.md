@@ -26,7 +26,7 @@ Oftentimes, especially when in a [Clean Architecture](https://blog.cleancoder.co
 In order to do so, it is commonly considered good practice to throw more "abstract" errors, so maybe a custom `RemoteFooProviderError` instead of just letting the error thrown by the used HTTP client bubble up. This is frequently combined with adding some additional logic like so:
 
 ```typescript
-class Foo {
+class FooProvider {
     public async getFooFromRemoteSource(id: number): Promise<Foo> {
         let response: FooResponse
 
@@ -55,13 +55,13 @@ It is also not particularly nice-looking code because the signal-to-noise-ratio 
 This is the problem this module sets out to simplify:
 
 ```typescript
-class Foo {
+class FooProvider {
     @HandleError(
         {
             action: HandlerAction.MAP,
             scope: HttpClientError,
             predicate: error => (error as HTTPError).statusCode === 404,
-            callback: (_error, id) => new DeviceNotFoundError(id),
+            callback: (_error, id) => new FooNotFoundError(id),
         },
         {
             action: HandlerAction.MAP,
@@ -80,22 +80,25 @@ class Foo {
 }
 ```
 
+The `HandleError` decorator is configured with a series of _error handlers_ (the so-called _handler chain_) which are executed sequentially:
+
+-   first, any 404 responses is mapped to a `FooNotFoundError` (which is then immediately thrown)
+-   if the first handler does not match, any other `HttpClientError` is mapped to a `FooRemoteSourceError` (and thrown)
+-   and finally, any other error is then mapped to a `UnexpectedFooRemoteSourceError`
+
 For a more complete (and more realistic) example, check out our use cases, e.g. the [API wrapper use case](https://github.com/pigulla/shumway/blob/main/test/api-wrapper/api-wrapper.use-case.ts).
 
-### Caveats and known limitations
-
--   This library currently works only with asynchronous functions. A version for synchronous functions could be added later if there is a need for it.
--   By its very nature, decorators do not work with plain functions (only class methods).
+Please [read the wiki](https://github.com/pigulla/shumway/wiki) for more detailed information.
 
 ## Installation
 
-Use your favorite package manager to install:
+Use your favorite package manager to install, e.g.:
 
 ```bash
 npm install shumway
 ```
 
-## Usage
+## Basic Usage
 
 Simply decorate your class methods with `@HandleError` and configure as needed:
 
@@ -113,4 +116,9 @@ class Foo {
 
 Remember that a handler is only ever called if the wrapped function throws an error.
 
-Please [read the wiki](https://github.com/pigulla/shumway/wiki) for more information.
+Please [read the wiki](https://github.com/pigulla/shumway/wiki) for more detailed information.
+
+## Caveats and known limitations
+
+-   This library currently works only with asynchronous functions. A version for synchronous functions could be added later if there is a need for it.
+-   By its very nature, decorators do not work with plain functions (only class methods).
