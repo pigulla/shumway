@@ -1,6 +1,6 @@
 ![Typescript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg?style=flat-square)
 [![npm](https://img.shields.io/npm/v/shumway?style=flat-square&cacheSeconds=3600)](https://www.npmjs.com/package/shumway)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pigulla/shumway/Node.js%20CI?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/actions?query=branch%3Amain)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pigulla/shumway/Build%20and%20Test?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/actions?query=branch%3Amain)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/issues)
 [![libraries.io](https://img.shields.io/librariesio/release/npm/shumway?style=flat-square&cacheSeconds=3600)](https://requires.io/github/pigulla/shumway/requirements/?branch=main)
 [![Codecov](https://img.shields.io/codecov/c/github/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://app.codecov.io/gh/pigulla/shumway)
