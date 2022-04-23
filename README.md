@@ -14,7 +14,7 @@
 #### Safe and simple to use
 
 -   🕵️‍♀️ Thoroughly tested
--   🕮 Well documented
+-   🕮 Well [documented](https://github.com/pigulla/shumway/wiki)
 -   ✨ No additional dependencies (except [debug](https://www.npmjs.com/package/debug))
 -   😊 Uses [Semantic Versioning](https://semver.org/) and keeps a [nice](https://keepachangelog.com/en/1.0.0/) [Changelog](https://github.com/pigulla/shumway/blob/main/CHANGELOG.md)
 
