@@ -1,20 +1,27 @@
-![Typescript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg?style=flat-square)
-[![npm](https://img.shields.io/npm/v/shumway?style=flat-square&cacheSeconds=3600)](https://www.npmjs.com/package/shumway)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pigulla/shumway/Build%20and%20Test?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/actions?query=branch%3Amain)
-[![GitHub Issues](https://img.shields.io/github/issues-raw/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://github.com/pigulla/shumway/issues)
-[![libraries.io](https://img.shields.io/librariesio/release/npm/shumway?style=flat-square&cacheSeconds=3600)](https://requires.io/github/pigulla/shumway/requirements/?branch=main)
-[![Codecov](https://img.shields.io/codecov/c/github/pigulla/shumway?style=flat-square&cacheSeconds=3600)](https://app.codecov.io/gh/pigulla/shumway)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/shumway/0.0.1-alpha?style=flat-square&cacheSeconds=3600)](https://bundlephobia.com/package/shumway)
-[![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/shumway?style=flat-square&cacheSeconds=3600)](https://snyk.io/advisor/npm-package/shumway)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/wiki/pigulla/shumway/logo-white.png#gh-dark-mode-only" width="392" alt="Shumway Logo" />
+    <img src="https://raw.githubusercontent.com/wiki/pigulla/shumway/logo-black.png#gh-light-mode-only" width="392" alt="Shumway Logo" />
+</p>
+<p align="center">
+    Surely there must be <em>shumway</em> to make error handling easier!
+</p>
+<p align="center">
+    <img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg?style=flat-square">
+    <a href="https://www.npmjs.com/package/shumway"><img src="https://img.shields.io/npm/v/shumway?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://github.com/pigulla/shumway/actions?query=branch%3Amain"><img src="https://img.shields.io/github/workflow/status/pigulla/shumway/Build%20and%20Test?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://github.com/pigulla/shumway/issues"><img src="https://img.shields.io/github/issues-raw/pigulla/shumway?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://requires.io/github/pigulla/shumway/requirements/?branch=main"><img src="https://img.shields.io/librariesio/release/npm/shumway?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://app.codecov.io/gh/pigulla/shumway"><img src="https://img.shields.io/codecov/c/github/pigulla/shumway?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://bundlephobia.com/package/shumway"><img src="https://img.shields.io/bundlephobia/min/shumway/0.0.1-alpha?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://snyk.io/advisor/npm-package/shumway"><img src="https://img.shields.io/snyk/vulnerabilities/npm/shumway?style=flat-square&cacheSeconds=3600"></a>
+</p>
 
 # shumway
 
-> Surely there must be _shumway_ to make error handling easier!
-
 #### Safe and simple to use
 
--   🕵️‍♀️ Thoroughly tested
--   🕮 Well [documented](https://github.com/pigulla/shumway/wiki)
+-   🕵️‍♀️ Thoroughly [tested](https://app.codecov.io/gh/pigulla/shumway)
+-   📃 Well [documented](https://github.com/pigulla/shumway/wiki)
 -   ✨ No additional dependencies (except [debug](https://www.npmjs.com/package/debug))
 -   😊 Uses [Semantic Versioning](https://semver.org/) and keeps a [nice](https://keepachangelog.com/en/1.0.0/) [Changelog](https://github.com/pigulla/shumway/blob/main/CHANGELOG.md)
 
