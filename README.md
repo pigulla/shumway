@@ -8,6 +8,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg?style=flat-square">
     <a href="https://www.npmjs.com/package/shumway"><img src="https://img.shields.io/npm/v/shumway?style=flat-square&cacheSeconds=3600"></a>
+    <a href="https://github.com/pigulla/shumway/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/shumway?style=flat-square&cacheSeconds=3600"></a>
     <a href="https://bundlephobia.com/package/shumway"><img src="https://img.shields.io/bundlephobia/min/shumway/0.0.1-alpha?style=flat-square&cacheSeconds=3600"></a>
     <br>
     <a href="https://github.com/pigulla/shumway/actions?query=branch%3Amain"><img src="https://img.shields.io/github/workflow/status/pigulla/shumway/Build%20and%20Test?style=flat-square&cacheSeconds=3600"></a>
