@@ -25,22 +25,27 @@ export async function runErrorHandlers<
         const result = await executeHandler(handler, { ...context, error }, debug)
 
         switch (result.iteration) {
-            case Iteration.CONTINUE:
+            case Iteration.CONTINUE: {
                 error = result.error
                 continue
-            case Iteration.BREAK:
+            }
+            case Iteration.BREAK: {
                 error = result.error
                 break Loop
-            case Iteration.RETURN:
+            }
+            case Iteration.RETURN: {
                 return result.value
-            case Iteration.THROW:
+            }
+            case Iteration.THROW: {
                 throw result.error
-            default:
+            }
+            default: {
                 throw new RangeError(
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     `Unexpected iteration result type: ${result.iteration as string}`,
                 )
+            }
         }
     }
 

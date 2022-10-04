@@ -23,17 +23,17 @@
             "statements": 100
         }
     },
-    "globals": {
-        "ts-jest": {
-            "tsconfig": "<rootDir>/tsconfig.json"
-        }
-    },
     "moduleFileExtensions": ["js", "ts"],
     "resetMocks": true,
     "setupFilesAfterEnv": ["jest-extended/all"],
     "testEnvironment": "node",
     "testRegex": ["/src/.*\\.spec\\.ts$", "/test/.*\\.spec\\.ts"],
     "transform": {
-        "^.+\\.ts$": "ts-jest"
+        "^.+\\.ts$": [
+            "ts-jest",
+            {
+                "tsconfig": "<rootDir>/tsconfig.json"
+            }
+        ]
     }
 }

@@ -56,21 +56,27 @@ export async function executeHandler<
     }
 
     switch (handler.action) {
-        case HandlerAction.MAP:
+        case HandlerAction.MAP: {
             return mapHandler(debug, context, handler)
-        case HandlerAction.RECOVER:
+        }
+        case HandlerAction.RECOVER: {
             return recoverHandler(debug, context, handler)
-        case HandlerAction.SIDE_EFFECT:
+        }
+        case HandlerAction.SIDE_EFFECT: {
             return sideEffectHandler(debug, context, handler)
-        case HandlerAction.TAP:
+        }
+        case HandlerAction.TAP: {
             return tapHandler(debug, context, handler)
-        case HandlerAction.PASS_THROUGH:
+        }
+        case HandlerAction.PASS_THROUGH: {
             return passThroughHandler(debug, context, handler)
-        default:
+        }
+        default: {
             throw new RangeError(
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 `Unexpected handler action: ${handler.action as string}`,
             )
+        }
     }
 }
