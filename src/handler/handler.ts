@@ -1,5 +1,6 @@
 import type { Class, Promisable } from 'type-fest'
 
+import type { AbstractConstructor } from '../abstract-constructor'
 import type { HandlerAction } from '../handler-action.enum'
 
 import type { MapOptions } from './map'
@@ -16,7 +17,7 @@ export type Predicate<Arguments extends unknown[], Self, Trigger extends Error> 
 
 export interface BaseOptions<Arguments extends unknown[], Self, Trigger extends Error> {
     action: HandlerAction
-    scope?: Class<Error> | undefined
+    scope?: Class<Error> | AbstractConstructor<Error> | undefined
     predicate?: Predicate<Arguments, Self, Trigger> | undefined
 }
 

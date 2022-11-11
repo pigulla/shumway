@@ -1,3 +1,4 @@
+export * from './abstract-constructor'
 export * from './error'
 export * from './handle-error.decorator'
 export * from './handler-action.enum'

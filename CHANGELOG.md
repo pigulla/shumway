@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-12-11
+
+### Added
+
+-   `scope` can now be an abstract constructor.
+
 ## [1.0.0] - 2022-10-12
 
 ### Added
