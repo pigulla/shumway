@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/debug": "^4.1.7",
     "@types/jest": "^29.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
