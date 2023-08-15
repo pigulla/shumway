@@ -1,12 +1,13 @@
 {
   "name": "shumway",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reduce boilerplate code when handling exceptions.",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc --project tsconfig.build.json",
     "setup": "npm ci && rm -rf coverage dist",
-    "test": "npm run lint && npm run jest && npm audit",
+    "test": "npm run lint && npm run jest && npm run audit",
+    "audit": "npm audit && npm audit signatures",
     "format": "npm run format:prettier && npm run format:eslint",
     "format:eslint": "eslint --ext=ts --fix .",
     "format:prettier": "prettier --write .",

@@ -11,11 +11,9 @@
     <a href="https://github.com/pigulla/shumway/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/shumway?style=flat-square&cacheSeconds=3600"></a>
     <a href="https://bundlephobia.com/package/shumway"><img src="https://img.shields.io/bundlephobia/min/shumway?style=flat-square&cacheSeconds=3600"></a>
     <br>
-    <img src="https://img.shields.io/github/actions/workflow/status/pigulla/shumway/build-and-test.yml?style=flat-square">
     <a href="https://github.com/pigulla/shumway/issues"><img src="https://img.shields.io/github/issues-raw/pigulla/shumway?style=flat-square&cacheSeconds=3600"></a>
     <a href="https://libraries.io/npm/shumway"><img src="https://img.shields.io/librariesio/release/npm/shumway?style=flat-square&cacheSeconds=3600"></a>
     <a href="https://app.codecov.io/gh/pigulla/shumway"><img src="https://img.shields.io/codecov/c/github/pigulla/shumway?style=flat-square&cacheSeconds=3600"></a>
-    <a href="https://snyk.io/advisor/npm-package/shumway"><img src="https://img.shields.io/snyk/vulnerabilities/npm/shumway?style=flat-square&cacheSeconds=3600"></a>
 </p>
 
 # shumway
