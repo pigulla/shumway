@@ -88,6 +88,7 @@ module.exports = {
         ],
         'import/prefer-default-export': 'off',
         'unicorn/no-null': 'off',
+        'unicorn/throw-new-error': 'off',
     },
     overrides: [
         {
