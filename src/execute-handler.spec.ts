@@ -7,7 +7,7 @@ jest.mock('./handler/map/map.handler')
 
 import type { ExecutionResult } from './execute-handler'
 import { executeHandler, Iteration } from './execute-handler'
-import { PredicateError } from './handler'
+import { type BaseOptions, PredicateError } from './handler'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
 import { recoverHandler } from './handler/recover'
@@ -46,7 +46,7 @@ describe('executeHandler', () => {
 
     beforeEach(() => {
         self = {}
-        error = new Error('Boom!')
+        error = new TypeError('Boom!')
         parameters = ['foo', 42]
         context = { self, error, parameters }
         loggerMock = mockDebugger()
@@ -74,7 +74,7 @@ describe('executeHandler', () => {
         })
 
         it('should continue if the scope does not match', async () => {
-            handlerMock.scope = ScopeError
+            handlerMock.scope = () => ScopeError
 
             await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual<
                 ExecutionResult<ReturnValue>
@@ -82,7 +82,7 @@ describe('executeHandler', () => {
         })
 
         it('should continue if a nameless scope does not match', async () => {
-            handlerMock.scope = NamelessScopeError
+            handlerMock.scope = () => NamelessScopeError
 
             await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual<
                 ExecutionResult<ReturnValue>
@@ -121,6 +121,44 @@ describe('executeHandler', () => {
                     cause: predicateError,
                 }),
             })
+        })
+    })
+
+    describe('when a scope is specified', () => {
+        it.each<[BaseOptions<unknown[], unknown, Error>['scope']]>([
+            [() => true],
+            [async () => true],
+            [() => TypeError],
+            [async () => TypeError],
+        ])(`should run the handler`, async scope => {
+            const handlerMock = {
+                action: HandlerAction.MAP,
+                scope,
+                callback: jest.fn(),
+            }
+            mapMock.mockResolvedValue(executionResult)
+
+            await executeHandler(handlerMock, context, loggerMock)
+
+            expect(mapMock).toHaveBeenCalledWith(loggerMock, context, handlerMock)
+        })
+
+        it.each<[BaseOptions<unknown[], unknown, Error>['scope']]>([
+            [() => false],
+            [async () => false],
+            [() => SyntaxError],
+            [async () => SyntaxError],
+        ])(`should not run the handler`, async scope => {
+            const handlerMock = {
+                action: HandlerAction.MAP,
+                scope,
+                callback: jest.fn(),
+            }
+            mapMock.mockResolvedValue(executionResult)
+
+            await executeHandler(handlerMock, context, loggerMock)
+
+            expect(mapMock).not.toHaveBeenCalled()
         })
     })
 

@@ -59,20 +59,22 @@ class FooProvider {
 While there is nothing wrong with that approach per se, it quickly becomes tedious (and increasingly annoying to maintain) once you have multiple methods that share the same error handling boilerplate.
 It is also not particularly nice-looking code because the signal-to-noise-ratio is fairly poor.
 
-This is the problem this module sets out to simplify:
+One approach is to split the error handling and the actual functionality into different functions, e.g. `doGetFooFromRemoteSource` (which does the remote call but no complex error handling) and `getFooFromRemoteSource` (which has _only_ error handling).
+
+This module offers a different approach:
 
 ```typescript
 class FooProvider {
     @HandleError(
         {
             action: HandlerAction.MAP,
-            scope: HttpClientError,
+            scope: () => HttpClientError,
             predicate: error => (error as HTTPError).statusCode === 404,
             callback: (_error, id) => new FooNotFoundError(id),
         },
         {
             action: HandlerAction.MAP,
-            scope: HttpClientError,
+            scope: () => HttpClientError,
             callback: error => new FooRemoteSourceError(error),
         },
         {

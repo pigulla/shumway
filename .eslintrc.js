@@ -94,9 +94,10 @@ module.exports = {
         {
             files: ['**/*.spec.ts'],
             rules: {
+                '@typescript-eslint/ban-types': 'off',
+                '@typescript-eslint/explicit-function-return-type': 'off',
                 '@typescript-eslint/no-explicit-any': 'off',
                 '@typescript-eslint/require-await': 'off',
-                '@typescript-eslint/ban-types': 'off',
             },
         },
     ],

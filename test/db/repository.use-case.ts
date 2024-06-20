@@ -25,7 +25,7 @@ export class Repository {
 
     @HandleError<Repository['getTodoById']>({
         action: HandlerAction.MAP,
-        scope: QueryResultError,
+        scope: () => QueryResultError,
         callback: (_, id) => new TodoNotFoundError(id),
     })
     public async getTodoById(id: number): Promise<Todo> {
@@ -37,20 +37,20 @@ export class Repository {
     @HandleError<Repository['createTodo']>(
         {
             action: HandlerAction.MAP,
-            scope: PostgresError,
+            scope: () => PostgresError,
             predicate: error =>
                 (error as PostgresError).code === ErrorCode.FOREIGN_KEY_CONSTRAINT_VIOLATION,
             callback: (_, { ownerId }) => new UserNotFoundError(ownerId),
         },
         {
             action: HandlerAction.MAP,
-            scope: PostgresError,
+            scope: () => PostgresError,
             predicate: error => (error as PostgresError).code === ErrorCode.DUPLICATE_KEY,
             callback: (_, { slug }) => new DuplicateSlugError(slug),
         },
         {
             action: HandlerAction.PASS_THROUGH,
-            scope: InvalidEntityError,
+            scope: () => InvalidEntityError,
         },
         {
             action: HandlerAction.MAP,
