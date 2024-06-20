@@ -16,7 +16,7 @@ export type Predicate<Arguments extends unknown[], Self, Trigger extends Error> 
 
 export interface BaseOptions<Arguments extends unknown[], Self, Trigger extends Error> {
     action: HandlerAction
-    scope?: Class<Error> | undefined
+    scope?: (error: Error) => Promisable<boolean | Class<Error>>
     predicate?: Predicate<Arguments, Self, Trigger> | undefined
 }
 

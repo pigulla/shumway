@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2024-06-20
+
+### Changed
+
+-   `scope` is now always a function. To migrate, replace `scope: MyError` with `scope: () => MyError`.
+
 ## [1.0.3] - 2024-02-19
 
 ### Changed
@@ -40,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
--   Removed `continueOnCallbackError` option
+-   Removed `continueOnCallbackError` option.
 
 ## [0.0.2] - 2022-04-11
 
@@ -51,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Configure [dependabot](https://docs.github.com/en/code-security/dependabot) for automated dependency updates
+-   Configure [dependabot](https://docs.github.com/en/code-security/dependabot) for automated dependency updates.
 
 ## [0.0.1-alpha] - 2022-04-04
 

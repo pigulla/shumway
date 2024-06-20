@@ -1,5 +1,3 @@
-import { Console } from 'node:console'
-
 import { HttpClient, HTTPError, TimeoutError, Validator, ValidatorError } from './external'
 import {
     ApiWrapperError,
@@ -35,13 +33,13 @@ export class ApiWrapper {
         {
             // Farther up the call stack, this would be mapped to a 504 Gateway Timeout.
             action: HandlerAction.MAP,
-            scope: TimeoutError,
+            scope: () => TimeoutError,
             callback: error => new ApiWrapperTimeoutError(error),
         },
         {
             // Farther up the call stack, this would be mapped to a 404 Not Found.
             action: HandlerAction.MAP,
-            scope: HTTPError,
+            scope: () => HTTPError,
             predicate: error => (error as HTTPError).statusCode === 404,
             callback: (_error, id) => new DeviceNotFoundError(id),
         },
@@ -49,13 +47,13 @@ export class ApiWrapper {
             // Farther up the call stack, this would be mapped to a 400 Bad Request or
             // 502 Bad Gateway, depending on the error from upstream.
             action: HandlerAction.MAP,
-            scope: HTTPError,
+            scope: () => HTTPError,
             callback: error => new ApiWrapperRemoteError(error as HTTPError),
         },
         {
             // Farther up the call stack, this would be mapped to a 502 Bad Gateway.
             action: HandlerAction.MAP,
-            scope: ValidatorError,
+            scope: () => ValidatorError,
             callback: error => new ApiWrapperInvalidResponseError(error as ValidatorError),
         },
         {

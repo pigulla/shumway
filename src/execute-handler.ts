@@ -1,6 +1,6 @@
 import type { IDebugger } from 'debug'
 
-import type { Handler } from './handler'
+import type { BaseOptions, Handler } from './handler'
 import { PredicateError } from './handler'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
@@ -23,6 +23,15 @@ export type ExecutionResult<ReturnValue> =
       }
     | { iteration: Iteration.RETURN; value: ReturnValue }
 
+async function matchesScope<Arguments extends unknown[], Self, Trigger extends Error>(
+    scope: Exclude<BaseOptions<Arguments, Self, Trigger>['scope'], undefined>,
+    error: Trigger,
+): Promise<boolean> {
+    const result = await scope(error)
+
+    return typeof result === 'boolean' ? result : error instanceof result
+}
+
 export async function executeHandler<
     Arguments extends unknown[],
     Self,
@@ -35,7 +44,7 @@ export async function executeHandler<
 ): Promise<ExecutionResult<ReturnValue>> {
     const nextError: Error = context.error
 
-    if (handler.scope && !(context.error instanceof handler.scope)) {
+    if (handler.scope && !(await matchesScope(handler.scope, context.error))) {
         debug('skipping handler because its scope did not match')
         return { iteration: Iteration.CONTINUE, error: nextError }
     }

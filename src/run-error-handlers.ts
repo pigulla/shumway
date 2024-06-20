@@ -42,7 +42,7 @@ export async function runErrorHandlers<
             default: {
                 throw new RangeError(
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
+                    // @ts-expect-error
                     `Unexpected iteration result type: ${result.iteration as string}`,
                 )
             }
