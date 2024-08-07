@@ -43,7 +43,7 @@
     "test": "npm run lint && npm run jest && npm run audit"
   },
   "dependencies": {
-    "debug": "4.3.5"
+    "debug": "4.3.6"
   },
   "devDependencies": {
     "@types/debug": "4.1.12",
