@@ -4,12 +4,11 @@ import { debug } from './debug'
 import type { Handler } from './handler'
 import { runErrorHandlers } from './run-error-handlers'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function HandleError<Method extends AsyncFunction = AsyncFunction, Self extends Object = {}>(
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export function HandleError<Method extends AsyncFunction = AsyncFunction, Self extends object = {}>(
     ...handlers: Handler<Parameters<Method>, Self, Error, AsyncReturnType<Method>>[]
 ): MethodDecorator {
     return function mapError(target, propertyKey, descriptor) {
-        // eslint-disable-next-line @typescript-eslint/ban-types
         const wrappedFunction = descriptor.value as unknown as (
             ...parameters: Parameters<Method>
         ) => Promise<ReturnType<Method>>

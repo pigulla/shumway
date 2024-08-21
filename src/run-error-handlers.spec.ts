@@ -21,6 +21,7 @@ export function mockHandler<
 }
 
 describe('runErrorHandlers', () => {
+    // eslint-disable-next-line @typescript-eslint/no-wrapper-object-types
     type Self = Object
     type Arguments = [string, number]
     type ReturnValue = string
