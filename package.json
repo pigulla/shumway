@@ -62,7 +62,7 @@
     "sort-package-json": "2.10.1",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
-    "type-fest": "4.26.1",
+    "type-fest": "4.27.0",
     "typescript": "5.6.3"
   }
 }
