@@ -20,10 +20,10 @@
 
 #### Safe and simple to use
 
--   🕵️‍♀️ Thoroughly [tested](https://app.codecov.io/gh/pigulla/shumway)
--   📃 Well [documented](https://github.com/pigulla/shumway/wiki)
--   ✨ No additional dependencies (except [debug](https://www.npmjs.com/package/debug))
--   😊 Uses [Semantic Versioning](https://semver.org/) and keeps a [nice](https://keepachangelog.com/en/1.0.0/) [Changelog](https://github.com/pigulla/shumway/blob/main/CHANGELOG.md)
+- 🕵️‍♀️ Thoroughly [tested](https://app.codecov.io/gh/pigulla/shumway)
+- 📃 Well [documented](https://github.com/pigulla/shumway/wiki)
+- ✨ No additional dependencies (except [debug](https://www.npmjs.com/package/debug))
+- 😊 Uses [Semantic Versioning](https://semver.org/) and keeps a [nice](https://keepachangelog.com/en/1.0.0/) [Changelog](https://github.com/pigulla/shumway/blob/main/CHANGELOG.md)
 
 ## Elevator Pitch
 
@@ -89,9 +89,9 @@ class FooProvider {
 
 The `HandleError` decorator is configured with a series of _error handlers_ (the so-called _handler chain_) which are executed sequentially:
 
--   first, any 404 responses is mapped to a `FooNotFoundError` (which is then immediately thrown)
--   if the first handler does not match, any other `HttpClientError` is mapped to a `FooRemoteSourceError` (and thrown)
--   and finally, any other error is then mapped to a `UnexpectedFooRemoteSourceError`
+- first, any 404 responses is mapped to a `FooNotFoundError` (which is then immediately thrown)
+- if the first handler does not match, any other `HttpClientError` is mapped to a `FooRemoteSourceError` (and thrown)
+- and finally, any other error is then mapped to a `UnexpectedFooRemoteSourceError`
 
 For a more complete (and more realistic) example, check out our use cases, e.g. the [API wrapper use case](https://github.com/pigulla/shumway/blob/main/test/api-wrapper/api-wrapper.use-case.ts).
 
@@ -127,5 +127,5 @@ Please [read the wiki](https://github.com/pigulla/shumway/wiki) for more detaile
 
 ## Caveats and known limitations
 
--   This library currently works only with asynchronous functions. A version for synchronous functions could be added later if there is a need for it.
--   By its very nature, decorators do not work with plain functions (only class methods).
+- This library currently works only with asynchronous functions. A version for synchronous functions could be added later if there is a need for it.
+- By its very nature, decorators do not work with plain functions (only class methods).
