@@ -1,6 +1,6 @@
 {
   "name": "shumway",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Reduce boilerplate code when handling exceptions.",
   "keywords": [
     "errors",
@@ -43,26 +43,26 @@
     "test": "npm run lint && npm run jest && npm run audit"
   },
   "dependencies": {
-    "debug": "4.3.7"
+    "debug": "4.4.0"
   },
   "devDependencies": {
     "@types/debug": "4.1.12",
     "@types/jest": "29.5.14",
-    "@types/node": "22.9.0",
-    "@typescript-eslint/eslint-plugin": "8.14.0",
-    "@typescript-eslint/parser": "8.13.0",
+    "@types/node": "22.10.5",
+    "@typescript-eslint/eslint-plugin": "8.19.1",
+    "@typescript-eslint/parser": "8.19.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-prettier": "5.2.1",
-    "eslint-plugin-unicorn": "56.0.0",
+    "eslint-plugin-unicorn": "56.0.1",
     "jest": "29.7.0",
     "jest-extended": "4.0.2",
-    "prettier": "3.3.3",
-    "sort-package-json": "2.10.1",
+    "prettier": "3.4.2",
+    "sort-package-json": "2.12.0",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
-    "type-fest": "4.27.0",
-    "typescript": "5.6.3"
+    "type-fest": "4.31.0",
+    "typescript": "5.7.2"
   }
 }
