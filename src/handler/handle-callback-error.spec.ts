@@ -19,6 +19,7 @@ describe('handleCallbackError', () => {
     let trigger: Error
     let callbackError: Error
     let loggerMock: DebugMock
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     let handler: RecoverOptions<any, any, any, any>
 
     beforeEach(() => {

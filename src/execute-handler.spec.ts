@@ -6,15 +6,15 @@ jest.mock('./handler/tap/tap.handler')
 jest.mock('./handler/map/map.handler')
 
 import type { ExecutionResult } from './execute-handler'
-import { executeHandler, Iteration } from './execute-handler'
+import { Iteration, executeHandler } from './execute-handler'
 import { PredicateError } from './handler'
+import { HandlerAction } from './handler-action.enum'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
 import { recoverHandler } from './handler/recover'
 import { sideEffectHandler } from './handler/side-effect'
 import type { TapOptions } from './handler/tap'
 import { tapHandler } from './handler/tap'
-import { HandlerAction } from './handler-action.enum'
 import { mockDebugger } from './mock'
 import type {
     DebugMock,

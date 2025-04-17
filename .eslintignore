@@ -1,6 +1,0 @@
-dist/
-coverage/
-test/
-.eslintrc.js
-/src/global.d.ts
-/test.ts

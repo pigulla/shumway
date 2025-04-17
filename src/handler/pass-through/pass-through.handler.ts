@@ -5,7 +5,6 @@ import { Iteration } from '../../execute-handler'
 
 import type { PassThroughOptions } from './pass-through.options'
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function passThroughHandler<
     Arguments extends unknown[],
     Self,

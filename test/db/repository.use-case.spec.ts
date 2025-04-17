@@ -1,5 +1,3 @@
-import { Repository } from './repository.use-case'
-import { ErrorCode, PostgresClient, PostgresError, QueryResultError } from './external'
 import {
     DuplicateSlugError,
     InvalidEntityError,
@@ -7,7 +5,9 @@ import {
     TodoNotFoundError,
     UserNotFoundError,
 } from './domain'
+import { ErrorCode, type PostgresClient, PostgresError, QueryResultError } from './external'
 import { RepositoryError } from './repository-error'
+import { Repository } from './repository.use-case'
 
 describe('Repository', () => {
     let repository: Repository

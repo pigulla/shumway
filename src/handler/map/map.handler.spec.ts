@@ -3,7 +3,7 @@ jest.mock('../handle-callback-error')
 import { Iteration } from '../../execute-handler'
 import { HandlerAction } from '../../handler-action.enum'
 import { mockDebugger, mockMapCallback } from '../../mock'
-import type { HandleCallbackErrorMock, DebugMock, MapCallbackMock } from '../../mock'
+import type { DebugMock, HandleCallbackErrorMock, MapCallbackMock } from '../../mock'
 import { handleCallbackError } from '../handle-callback-error'
 
 import { MapError } from './map.error'
@@ -40,7 +40,7 @@ describe('mapHandler', () => {
         }
     })
 
-    it(`should continue with the mapped error`, async () => {
+    it('should continue with the mapped error', async () => {
         const mappedError = new MappedError()
         callback.mockReturnValue(mappedError)
 
@@ -56,7 +56,7 @@ describe('mapHandler', () => {
         expect(handleCallbackErrorMock).not.toHaveBeenCalled()
     })
 
-    it(`should break with the mapped error`, async () => {
+    it('should break with the mapped error', async () => {
         const mappedError = new MappedError()
         callback.mockReturnValue(mappedError)
 

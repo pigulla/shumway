@@ -1,6 +1,6 @@
 jest.mock('./execute-handler')
 
-import { executeHandler, Iteration } from './execute-handler'
+import { Iteration, executeHandler } from './execute-handler'
 import type { BaseOptions, Handler } from './handler'
 import type { HandlerAction } from './handler-action.enum'
 import type { DebugMock, ExecuteHandlerMock } from './mock'
@@ -9,11 +9,11 @@ import { runErrorHandlers } from './run-error-handlers'
 
 const executeHandlerMock = executeHandler as ExecuteHandlerMock
 
-export function mockHandler<
-    Arguments extends unknown[],
+function mockHandler<Arguments extends unknown[], Self, Trigger extends Error>(): BaseOptions<
+    Arguments,
     Self,
-    Trigger extends Error,
->(): BaseOptions<Arguments, Self, Trigger> {
+    Trigger
+> {
     return {
         action: '<mocked>' as HandlerAction,
         predicate: jest.fn(),
@@ -21,8 +21,7 @@ export function mockHandler<
 }
 
 describe('runErrorHandlers', () => {
-    // eslint-disable-next-line @typescript-eslint/no-wrapper-object-types
-    type Self = Object
+    type Self = object
     type Arguments = [string, number]
     type ReturnValue = string
     type Trigger = Error

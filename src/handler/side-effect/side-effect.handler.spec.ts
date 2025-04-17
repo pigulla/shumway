@@ -2,7 +2,7 @@ jest.mock('./../handle-callback-error')
 
 import { Iteration } from '../../execute-handler'
 import { HandlerAction } from '../../handler-action.enum'
-import type { DebugMock, SideEffectCallbackMock, HandleCallbackErrorMock } from '../../mock'
+import type { DebugMock, HandleCallbackErrorMock, SideEffectCallbackMock } from '../../mock'
 import { mockDebugger, mockSideEffectCallback } from '../../mock'
 import { handleCallbackError } from '../handle-callback-error'
 

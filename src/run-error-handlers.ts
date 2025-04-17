@@ -1,6 +1,6 @@
 import type { IDebugger } from 'debug'
 
-import { executeHandler, Iteration } from './execute-handler'
+import { Iteration, executeHandler } from './execute-handler'
 import type { Handler } from './handler'
 
 export async function runErrorHandlers<
@@ -17,7 +17,6 @@ export async function runErrorHandlers<
 
     parentDebugger('executing %d handler(s)', handlers.length)
 
-    // eslint-disable-next-line no-restricted-syntax
     Loop: for (const [index, handler] of handlers.entries()) {
         const debug = parentDebugger.extend(`handler:${index}`)
 
@@ -41,8 +40,7 @@ export async function runErrorHandlers<
             }
             default: {
                 throw new RangeError(
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
+                    // @ts-expect-error
                     `Unexpected iteration result type: ${result.iteration as string}`,
                 )
             }

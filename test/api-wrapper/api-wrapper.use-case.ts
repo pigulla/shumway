@@ -1,14 +1,20 @@
-import { Console } from 'node:console'
+import type { Console } from 'node:console'
 
-import { HttpClient, HTTPError, TimeoutError, Validator, ValidatorError } from './external'
+import { HandleError, HandlerAction } from '../../src'
 import {
     ApiWrapperError,
     ApiWrapperInvalidResponseError,
     ApiWrapperRemoteError,
     ApiWrapperTimeoutError,
 } from './api-wrapper-error'
-import { HandleError, HandlerAction } from '../../src'
 import { DeviceEntity, DeviceNotFoundError } from './domain'
+import {
+    HTTPError,
+    type HttpClient,
+    TimeoutError,
+    type Validator,
+    ValidatorError,
+} from './external'
 
 export class ApiWrapper {
     private readonly httpClient: HttpClient

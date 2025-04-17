@@ -32,10 +32,9 @@ export async function mapHandler<
         if (handler.continue) {
             debug(`'continue' is set, proceeding with remaining handlers`)
             return { iteration: Iteration.CONTINUE, error: mappedError }
-        } else {
-            debug(`'continue' is not set, skipping remaining handlers`)
-            return { iteration: Iteration.BREAK, error: mappedError }
         }
+        debug(`'continue' is not set, skipping remaining handlers`)
+        return { iteration: Iteration.BREAK, error: mappedError }
     } catch (callbackError) {
         return handleCallbackError<Arguments, Self, Trigger, ReturnValue>(
             {
