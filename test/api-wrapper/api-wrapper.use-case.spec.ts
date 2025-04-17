@@ -1,12 +1,19 @@
-import { ApiWrapper } from './api-wrapper.use-case'
-import { HttpClient, HTTPError, Logger, TimeoutError, Validator, ValidatorError } from './external'
-import { DeviceEntity, DeviceNotFoundError } from './domain'
 import {
     ApiWrapperError,
     ApiWrapperInvalidResponseError,
     ApiWrapperRemoteError,
     ApiWrapperTimeoutError,
 } from './api-wrapper-error'
+import { ApiWrapper } from './api-wrapper.use-case'
+import { DeviceEntity, DeviceNotFoundError } from './domain'
+import {
+    HTTPError,
+    type HttpClient,
+    Logger,
+    TimeoutError,
+    type Validator,
+    ValidatorError,
+} from './external'
 
 type ConsoleMock = jest.Mocked<Console>
 
@@ -29,9 +36,7 @@ describe('ApiWrapper', () => {
         validator = { validate: jest.fn() }
 
         apiWrapper = new ApiWrapper(httpClient, validator, console)
-    })
 
-    beforeEach(() => {
         validator.validate.mockImplementation(value => value)
         httpClient.request.mockResolvedValue({
             result: { deviceId, deviceName: 'Der Gerät' },

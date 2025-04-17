@@ -1,3 +1,1 @@
-export interface Logger {
-    (message: string): void
-}
+export type Logger = (message: string) => void

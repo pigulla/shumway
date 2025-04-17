@@ -1,4 +1,4 @@
-import { HTTPError, TimeoutError, ValidatorError } from './external'
+import type { HTTPError, TimeoutError, ValidatorError } from './external'
 
 export class ApiWrapperError<T extends Error = Error> extends Error {
     public readonly cause: T

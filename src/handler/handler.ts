@@ -20,7 +20,7 @@ export interface BaseOptions<Arguments extends unknown[], Self, Trigger extends 
     predicate?: Predicate<Arguments, Self, Trigger> | undefined
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export type AnyHandler = BaseOptions<any, any, any>
 
 export type Handler<Arguments extends unknown[], Self, Trigger extends Error, ReturnValue> =

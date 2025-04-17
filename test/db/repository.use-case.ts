@@ -1,4 +1,4 @@
-import { ErrorCode, PostgresClient, PostgresError, QueryResultError } from './external'
+import { HandleError, HandlerAction } from '../../src'
 import {
     DuplicateSlugError,
     InvalidEntityError,
@@ -6,7 +6,7 @@ import {
     TodoNotFoundError,
     UserNotFoundError,
 } from './domain'
-import { HandleError, HandlerAction } from '../../src'
+import { ErrorCode, type PostgresClient, PostgresError, QueryResultError } from './external'
 import { RepositoryError } from './repository-error'
 
 type TodoRow = {
@@ -59,7 +59,7 @@ export class Repository {
     )
     public async createTodo(data: { ownerId: number; slug: string; text: string }): Promise<Todo> {
         const { id } = await this.client.one<{ id: number }>(
-            `INSERT INTO todos (owner_id, slug, text) VALUES (?, ?, ?) RETURNING id`,
+            'INSERT INTO todos (owner_id, slug, text) VALUES (?, ?, ?) RETURNING id',
             data.ownerId,
             data.slug,
             data.text,

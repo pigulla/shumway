@@ -69,7 +69,6 @@ export function handleCallbackError<
         }
         default: {
             throw new RangeError(
-                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 `Unexpected action for callback error handling: ${callbackErrorAction}`,
             )
         }

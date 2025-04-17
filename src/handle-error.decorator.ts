@@ -4,8 +4,10 @@ import { debug } from './debug'
 import type { Handler } from './handler'
 import { runErrorHandlers } from './run-error-handlers'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export function HandleError<Method extends AsyncFunction = AsyncFunction, Self extends object = {}>(
+export function HandleError<
+    Method extends AsyncFunction = AsyncFunction,
+    Self extends object = object,
+>(
     ...handlers: Handler<Parameters<Method>, Self, Error, AsyncReturnType<Method>>[]
 ): MethodDecorator {
     return function mapError(target, propertyKey, descriptor) {
@@ -31,9 +33,7 @@ export function HandleError<Method extends AsyncFunction = AsyncFunction, Self e
             }
         }
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // eslint-disable-next-line no-param-reassign
+        // @ts-expect-error
         descriptor.value = wrapper
     }
 }

@@ -27,8 +27,7 @@ describe('HandleError', () => {
 
     beforeEach(() => {
         const mockDebug = debug as unknown as jest.Mock
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        // @ts-expect-error
         mockDebug.extend = jest.fn().mockReturnValue(mockDebug)
 
         instance = new Class()
