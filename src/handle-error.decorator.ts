@@ -10,7 +10,7 @@ export function HandleError<
 >(
     ...handlers: Handler<Parameters<Method>, Self, Error, AsyncReturnType<Method>>[]
 ): MethodDecorator {
-    return function mapError(target, propertyKey, descriptor) {
+    return function mapError(_target, _propertyKey, descriptor) {
         const wrappedFunction = descriptor.value as unknown as (
             ...parameters: Parameters<Method>
         ) => Promise<ReturnType<Method>>

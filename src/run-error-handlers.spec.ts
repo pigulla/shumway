@@ -1,6 +1,6 @@
 jest.mock('./execute-handler')
 
-import { Iteration, executeHandler } from './execute-handler'
+import { executeHandler, Iteration } from './execute-handler'
 import type { BaseOptions, Handler } from './handler'
 import type { HandlerAction } from './handler-action.enum'
 import type { DebugMock, ExecuteHandlerMock } from './mock'

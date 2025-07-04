@@ -1,15 +1,14 @@
+import { ApiWrapper } from './api-wrapper.use-case'
 import {
     ApiWrapperError,
     ApiWrapperInvalidResponseError,
     ApiWrapperRemoteError,
     ApiWrapperTimeoutError,
 } from './api-wrapper-error'
-import { ApiWrapper } from './api-wrapper.use-case'
 import { DeviceEntity, DeviceNotFoundError } from './domain'
 import {
     HTTPError,
     type HttpClient,
-    Logger,
     TimeoutError,
     type Validator,
     ValidatorError,

@@ -1,7 +1,7 @@
 import { Iteration } from '../../execute-handler'
 import { HandlerAction } from '../../handler-action.enum'
-import { mockDebugger, mockTapCallback } from '../../mock'
 import type { DebugMock, TapCallbackMock } from '../../mock'
+import { mockDebugger, mockTapCallback } from '../../mock'
 
 import { tapHandler } from './tap.handler'
 import type { TapOptions } from './tap.options'

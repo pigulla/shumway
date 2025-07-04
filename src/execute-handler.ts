@@ -2,12 +2,12 @@ import type { IDebugger } from 'debug'
 
 import type { Handler } from './handler'
 import { PredicateError } from './handler'
-import { HandlerAction } from './handler-action.enum'
 import { mapHandler } from './handler/map'
 import { passThroughHandler } from './handler/pass-through'
 import { recoverHandler } from './handler/recover'
 import { sideEffectHandler } from './handler/side-effect'
 import { tapHandler } from './handler/tap'
+import { HandlerAction } from './handler-action.enum'
 
 export enum Iteration {
     THROW = 'throw',

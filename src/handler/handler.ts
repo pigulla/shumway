@@ -20,7 +20,7 @@ export interface BaseOptions<Arguments extends unknown[], Self, Trigger extends 
     predicate?: Predicate<Arguments, Self, Trigger> | undefined
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+// biome-ignore lint/suspicious/noExplicitAny: This is intentional.
 export type AnyHandler = BaseOptions<any, any, any>
 
 export type Handler<Arguments extends unknown[], Self, Trigger extends Error, ReturnValue> =

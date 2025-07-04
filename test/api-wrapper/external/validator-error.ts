@@ -2,8 +2,6 @@
 // in a real project this would typically be defined inside a library, like ValidationError from the
 // class-validator package (https://github.com/typestack/class-validator).
 
-import { TimeoutError } from './http-client-error'
-
 export class ValidatorError extends Error {
     public override name = 'ValidatorError'
 }

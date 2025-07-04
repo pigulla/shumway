@@ -1,6 +1,6 @@
 import type { IDebugger } from 'debug'
 
-import { Iteration, executeHandler } from './execute-handler'
+import { executeHandler, Iteration } from './execute-handler'
 import type { Handler } from './handler'
 
 export async function runErrorHandlers<

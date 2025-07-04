@@ -6,8 +6,8 @@ import {
     UserNotFoundError,
 } from './domain'
 import { ErrorCode, type PostgresClient, PostgresError, QueryResultError } from './external'
-import { RepositoryError } from './repository-error'
 import { Repository } from './repository.use-case'
+import { RepositoryError } from './repository-error'
 
 describe('Repository', () => {
     let repository: Repository
