@@ -50,7 +50,7 @@
     "@types/debug": "4.1.12",
     "@types/jest": "30.0.0",
     "@types/node": "24.0.10",
-    "jest": "30.0.4",
+    "jest": "30.0.5",
     "jest-extended": "6.0.0",
     "lockfile-lint": "4.14.1",
     "sort-package-json": "3.4.0",
