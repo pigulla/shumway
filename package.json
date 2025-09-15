@@ -43,7 +43,7 @@
     "test": "npm run lint && npm run jest && npm run audit"
   },
   "dependencies": {
-    "debug": "4.4.1"
+    "debug": "4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
