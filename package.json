@@ -54,7 +54,7 @@
     "jest-extended": "6.0.0",
     "lockfile-lint": "4.14.1",
     "sort-package-json": "3.4.0",
-    "ts-jest": "29.4.4",
+    "ts-jest": "29.4.5",
     "ts-node": "10.9.2",
     "type-fest": "5.0.1",
     "typescript": "5.9.3"
