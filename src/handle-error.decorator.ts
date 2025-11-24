@@ -1,11 +1,12 @@
-import type { AsyncFunction, AsyncReturnType } from 'type-fest/source/async-return-type'
+import type { AsyncReturnType } from 'type-fest/source/async-return-type'
 
 import { debug } from './debug'
 import type { Handler } from './handler'
 import { runErrorHandlers } from './run-error-handlers'
 
 export function HandleError<
-    Method extends AsyncFunction = AsyncFunction,
+    // biome-ignore lint/suspicious/noExplicitAny: We really don't care.
+    Method extends (...args: any[]) => PromiseLike<any>,
     Self extends object = object,
 >(
     ...handlers: Handler<Parameters<Method>, Self, Error, AsyncReturnType<Method>>[]

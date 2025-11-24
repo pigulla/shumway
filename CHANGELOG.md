@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2025-11-24
+
 ### Chore
 
 - Update dependencies.
 - Replace ESLint and Prettier with Biome.
+- Update dependencies to fix a potential security issue.
 
 ## [1.0.5] - 2025-01-07
 
