@@ -1,6 +1,6 @@
 {
   "name": "shumway",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Reduce boilerplate code when handling exceptions.",
   "keywords": [
     "errors",
@@ -46,7 +46,7 @@
     "debug": "4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.5",
+    "@biomejs/biome": "2.3.7",
     "@types/debug": "4.1.12",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.1",
@@ -56,7 +56,7 @@
     "sort-package-json": "3.4.0",
     "ts-jest": "29.4.5",
     "ts-node": "10.9.2",
-    "type-fest": "5.0.1",
+    "type-fest": "5.2.0",
     "typescript": "5.9.3"
   }
 }
