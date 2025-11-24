@@ -46,7 +46,7 @@
     "debug": "4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.5",
+    "@biomejs/biome": "2.3.7",
     "@types/debug": "4.1.12",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.1",
