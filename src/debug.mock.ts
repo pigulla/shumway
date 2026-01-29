@@ -1,12 +1,13 @@
 import type { Debugger } from 'debug'
+import { type Mocked, vi } from 'vitest'
 
-export type DebugMock = jest.Mocked<Debugger>
+export type DebugMock = Mocked<Debugger>
 
 export function mockDebugger(): DebugMock {
-    const debug = jest.fn()
+    const debug = vi.fn()
 
     // @ts-expect-error
-    debug.extend = jest.fn().mockReturnValue(debug)
+    debug.extend = vi.fn().mockReturnValue(debug)
 
     return debug as Partial<DebugMock> as DebugMock
 }

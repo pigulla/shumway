@@ -1,6 +1,4 @@
+import type { Mock } from 'vitest'
 import type { runErrorHandlers } from './run-error-handlers'
 
-export type RunErrorHandlersMock = jest.Mock<
-    ReturnType<typeof runErrorHandlers>,
-    Parameters<typeof runErrorHandlers>
->
+export type RunErrorHandlersMock = Mock<typeof runErrorHandlers>

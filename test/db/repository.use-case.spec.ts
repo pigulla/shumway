@@ -1,3 +1,4 @@
+import { type Mocked, vi } from 'vitest'
 import {
     DuplicateSlugError,
     InvalidEntityError,
@@ -11,10 +12,10 @@ import { RepositoryError } from './repository-error'
 
 describe('Repository', () => {
     let repository: Repository
-    let client: jest.Mocked<PostgresClient>
+    let client: Mocked<PostgresClient>
 
     beforeEach(() => {
-        client = { one: jest.fn() }
+        client = { one: vi.fn() }
 
         repository = new Repository(client)
     })

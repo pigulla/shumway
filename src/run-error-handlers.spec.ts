@@ -1,4 +1,4 @@
-jest.mock('./execute-handler')
+vi.mock('./execute-handler')
 
 import { executeHandler, Iteration } from './execute-handler'
 import type { BaseOptions, Handler } from './handler'
@@ -16,7 +16,7 @@ function mockHandler<Arguments extends unknown[], Self, Trigger extends Error>()
 > {
     return {
         action: '<mocked>' as HandlerAction,
-        predicate: jest.fn(),
+        predicate: vi.fn(),
     }
 }
 

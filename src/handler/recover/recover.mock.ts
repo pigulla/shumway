@@ -1,3 +1,4 @@
+import { type Mock, vi } from 'vitest'
 import type { recoverHandler } from './recover.handler'
 import type { RecoverCallback } from './recover.options'
 
@@ -6,10 +7,7 @@ export type RecoverCallbackMock<
     Self,
     Trigger extends Error,
     ReturnValue,
-> = jest.Mock<
-    ReturnType<RecoverCallback<Arguments, Self, Trigger, ReturnValue>>,
-    Parameters<RecoverCallback<Arguments, Self, Trigger, ReturnValue>>
->
+> = Mock<RecoverCallback<Arguments, Self, Trigger, ReturnValue>>
 
 export function mockRecoverCallback<
     Arguments extends unknown[],
@@ -17,10 +15,7 @@ export function mockRecoverCallback<
     Trigger extends Error,
     ReturnValue,
 >(): RecoverCallbackMock<Arguments, Self, Trigger, ReturnValue> {
-    return jest.fn() as RecoverCallbackMock<Arguments, Self, Trigger, ReturnValue>
+    return vi.fn() as RecoverCallbackMock<Arguments, Self, Trigger, ReturnValue>
 }
 
-export type RecoverMock = jest.Mock<
-    ReturnType<typeof recoverHandler>,
-    Parameters<typeof recoverHandler>
->
+export type RecoverMock = Mock<typeof recoverHandler>
