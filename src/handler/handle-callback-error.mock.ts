@@ -1,6 +1,4 @@
+import type { Mock } from 'vitest'
 import type { handleCallbackError } from './handle-callback-error'
 
-export type HandleCallbackErrorMock = jest.Mock<
-    ReturnType<typeof handleCallbackError>,
-    Parameters<typeof handleCallbackError>
->
+export type HandleCallbackErrorMock = Mock<typeof handleCallbackError>

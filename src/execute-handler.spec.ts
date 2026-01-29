@@ -1,9 +1,9 @@
-jest.mock('./handler/recover/recover.handler')
-jest.mock('./handler/pass-through/pass-through.handler')
-jest.mock('./handler/side-effect/side-effect.handler')
-jest.mock('./handler/recover/recover.handler')
-jest.mock('./handler/tap/tap.handler')
-jest.mock('./handler/map/map.handler')
+vi.mock('./handler/recover/recover.handler')
+vi.mock('./handler/pass-through/pass-through.handler')
+vi.mock('./handler/side-effect/side-effect.handler')
+vi.mock('./handler/recover/recover.handler')
+vi.mock('./handler/tap/tap.handler')
+vi.mock('./handler/map/map.handler')
 
 import type { ExecutionResult } from './execute-handler'
 import { executeHandler, Iteration } from './execute-handler'
@@ -65,7 +65,7 @@ describe('executeHandler', () => {
         beforeEach(() => {
             handlerMock = {
                 action: HandlerAction.TAP,
-                callback: jest.fn(),
+                callback: vi.fn(),
             }
         })
 
@@ -76,26 +76,29 @@ describe('executeHandler', () => {
         it('should continue if the scope does not match', async () => {
             handlerMock.scope = ScopeError
 
-            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual<
-                ExecutionResult<ReturnValue>
-            >({ iteration: Iteration.CONTINUE, error })
+            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual({
+                iteration: Iteration.CONTINUE,
+                error,
+            })
         })
 
         it('should continue if a nameless scope does not match', async () => {
             handlerMock.scope = NamelessScopeError
 
-            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual<
-                ExecutionResult<ReturnValue>
-            >({ iteration: Iteration.CONTINUE, error })
+            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual({
+                iteration: Iteration.CONTINUE,
+                error,
+            })
         })
 
         it('should continue if the predicate does not match', async () => {
-            const predicateMock = jest.fn().mockReturnValue(false)
+            const predicateMock = vi.fn().mockReturnValue(false)
             handlerMock.predicate = predicateMock
 
-            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual<
-                ExecutionResult<ReturnValue>
-            >({ iteration: Iteration.CONTINUE, error })
+            await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual({
+                iteration: Iteration.CONTINUE,
+                error,
+            })
             expect(predicateMock).toHaveBeenCalledTimes(1)
             expect(predicateMock).toHaveBeenCalledWith(error, 'foo', 42)
             expect(predicateMock.mock.instances[0]).toBe(self)
@@ -111,7 +114,7 @@ describe('executeHandler', () => {
 
         it('should throw if the predicate callback throws', async () => {
             const predicateError = new Error('Boom!')
-            handlerMock.predicate = jest.fn().mockRejectedValue(predicateError)
+            handlerMock.predicate = vi.fn().mockRejectedValue(predicateError)
 
             await expect(executeHandler(handlerMock, context, loggerMock)).resolves.toEqual({
                 iteration: Iteration.THROW,
@@ -127,7 +130,7 @@ describe('executeHandler', () => {
     it(`should call the 'map' handler`, async () => {
         const handlerMock = {
             action: HandlerAction.MAP,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
         mapMock.mockResolvedValue(executionResult)
 
@@ -140,7 +143,7 @@ describe('executeHandler', () => {
     it(`should call the 'recover' handler`, async () => {
         const handlerMock = {
             action: HandlerAction.RECOVER,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
         recoverMock.mockResolvedValue(executionResult)
 
@@ -153,7 +156,7 @@ describe('executeHandler', () => {
     it(`should call the 'tap' handler`, async () => {
         const handlerMock = {
             action: HandlerAction.TAP,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
         tapMock.mockResolvedValue(executionResult)
 
@@ -166,7 +169,7 @@ describe('executeHandler', () => {
     it(`should call the 'sideEffect' handler`, async () => {
         const handlerMock = {
             action: HandlerAction.SIDE_EFFECT,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
         sideEffectMock.mockResolvedValue(executionResult)
 
@@ -179,7 +182,7 @@ describe('executeHandler', () => {
     it(`should call the 'passThrough' handler`, async () => {
         const handlerMock = {
             action: HandlerAction.PASS_THROUGH,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
         passThroughMock.mockResolvedValue(executionResult)
 

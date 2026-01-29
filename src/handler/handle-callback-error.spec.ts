@@ -28,7 +28,7 @@ describe('handleCallbackError', () => {
         loggerMock = mockDebugger()
         handler = {
             action: HandlerAction.RECOVER,
-            callback: jest.fn(),
+            callback: vi.fn(),
         }
     })
 

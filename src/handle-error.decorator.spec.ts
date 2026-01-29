@@ -1,6 +1,6 @@
-jest.mock('./run-error-handlers')
-jest.mock('./debug', () => {
-    return { debug: jest.fn() }
+vi.mock('./run-error-handlers')
+vi.mock('./debug', () => {
+    return { debug: vi.fn() }
 })
 
 import { debug } from './debug'
@@ -26,9 +26,9 @@ describe('HandleError', () => {
     let instance: Class
 
     beforeEach(() => {
-        const mockDebug = debug as unknown as jest.Mock
-        // @ts-expect-error
-        mockDebug.extend = jest.fn().mockReturnValue(mockDebug)
+        // biome-ignore lint/suspicious/noExplicitAny: Mock setup requires dynamic type
+        const mockDebug = debug as any
+        mockDebug.extend = vi.fn().mockReturnValue(mockDebug)
 
         instance = new Class()
     })

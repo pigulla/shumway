@@ -1,4 +1,4 @@
-jest.mock('../handle-callback-error')
+vi.mock('../handle-callback-error')
 
 import { Iteration } from '../../execute-handler'
 import { HandlerAction } from '../../handler-action.enum'

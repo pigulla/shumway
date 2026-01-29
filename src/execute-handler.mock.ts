@@ -1,6 +1,4 @@
+import type { Mock } from 'vitest'
 import type { executeHandler } from './execute-handler'
 
-export type ExecuteHandlerMock = jest.Mock<
-    ReturnType<typeof executeHandler>,
-    Parameters<typeof executeHandler>
->
+export type ExecuteHandlerMock = Mock<typeof executeHandler>

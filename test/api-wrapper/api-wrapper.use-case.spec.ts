@@ -1,3 +1,4 @@
+import { type Mocked, vi } from 'vitest'
 import { ApiWrapper } from './api-wrapper.use-case'
 import {
     ApiWrapperError,
@@ -14,11 +15,11 @@ import {
     ValidatorError,
 } from './external'
 
-type ConsoleMock = jest.Mocked<Console>
+type ConsoleMock = Mocked<Console>
 
 function mockConsole(): ConsoleMock {
     return {
-        info: jest.fn(),
+        info: vi.fn(),
     } as Partial<ConsoleMock> as ConsoleMock
 }
 
@@ -26,13 +27,13 @@ describe('ApiWrapper', () => {
     const deviceId = '47110815'
     let apiWrapper: ApiWrapper
     let console: ConsoleMock
-    let httpClient: jest.Mocked<HttpClient>
-    let validator: jest.Mocked<Validator>
+    let httpClient: Mocked<HttpClient>
+    let validator: Mocked<Validator>
 
     beforeEach(() => {
         console = mockConsole()
-        httpClient = { request: jest.fn() }
-        validator = { validate: jest.fn() }
+        httpClient = { request: vi.fn() }
+        validator = { validate: vi.fn() }
 
         apiWrapper = new ApiWrapper(httpClient, validator, console)
 
