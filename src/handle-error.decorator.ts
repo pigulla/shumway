@@ -1,5 +1,4 @@
-import type { AsyncReturnType } from 'type-fest/source/async-return-type'
-
+import type { AsyncReturnType } from 'type-fest'
 import { debug } from './debug'
 import type { Handler } from './handler'
 import { runErrorHandlers } from './run-error-handlers'
