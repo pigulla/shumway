@@ -2,10 +2,7 @@
     "include": ["./src/**/*.ts"],
     "compilerOptions": {
         "types": ["node", "vitest/globals"],
-
-        "baseUrl": "./",
         "outDir": "./dist",
-
         "allowSyntheticDefaultImports": true,
         "declaration": true,
         "emitDecoratorMetadata": false,
