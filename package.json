@@ -46,7 +46,7 @@
     "debug": "4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.8",
+    "@biomejs/biome": "2.4.10",
     "@types/debug": "4.1.13",
     "@types/node": "25.5.2",
     "@vitest/coverage-v8": "4.1.0",
