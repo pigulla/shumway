@@ -55,6 +55,6 @@
     "ts-node": "10.9.2",
     "type-fest": "5.5.0",
     "typescript": "5.9.3",
-    "vitest": "4.1.0"
+    "vitest": "4.1.2"
   }
 }
