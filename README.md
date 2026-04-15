@@ -1,4 +1,7 @@
 <p align="center">
+    <img src="http://unmaintained.tech/badge.svg" />
+</p>
+<p align="center">
     <img src="https://raw.githubusercontent.com/wiki/pigulla/shumway/logo-white.png#gh-dark-mode-only" width="392" alt="Shumway Logo" />
     <img src="https://raw.githubusercontent.com/wiki/pigulla/shumway/logo-black.png#gh-light-mode-only" width="392" alt="Shumway Logo" />
 </p>
